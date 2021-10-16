@@ -110,7 +110,7 @@
  *
  *   Options: [disable: 0, enable: 1]
  */
-#define NOTIFICATION_M117 0  // Default: 0
+#define NOTIFICATION_M117 1  // Default: 0
 
 //================================================================================
 //============================= Marlin Mode Settings =============================
@@ -136,7 +136,7 @@
  *
  *   Options: [disable: 0, enable: 1]
  */
-#define SERIAL_ALWAYS_ON 0  // Default: 0
+#define SERIAL_ALWAYS_ON 1  // Default: 0
 
 /**
  * Marlin Mode Background & Font Colors
@@ -146,7 +146,7 @@
  *             ORANGE: 8, PURPLE: 9, LIME: 10, BROWN: 11, DARKBLUE: 12, DARKGREEN: 13,    GRAY: 14, DARKGRAY: 15]
  */
 #define MARLIN_BACKGROUND_COLOR 1  // Marlin Mode background color (Default: 1)
-#define MARLIN_FONT_COLOR       0  // Marlin Mode font color (Default: 0)
+#define MARLIN_FONT_COLOR       10  // Marlin Mode font color (Default: 0)
 
 /**
  * Fullscreen Marlin Mode
@@ -224,9 +224,9 @@
 #define X_MIN_POS   0
 #define Y_MIN_POS   0
 #define Z_MIN_POS   0
-#define X_MAX_POS 235
-#define Y_MAX_POS 235
-#define Z_MAX_POS 250
+#define X_MAX_POS 120
+#define Y_MAX_POS 120
+#define Z_MAX_POS 120
 
 // Speed/flow rate names displayed in status screen
 #define SPEED_ID {"Sp.", "Fr."}  // (speed, flow rate)
@@ -236,19 +236,19 @@
 #define STEPPER_DISPLAY_ID {"X", "X2", "Y", "Y2", "Z", "Z2", "E0", "E1"}  // (X, X2, Y, Y2, Z, Z2, E0, E1)
 
 // X & Y speed (mm/min)
-#define SPEED_XY_SLOW   1000
-#define SPEED_XY_NORMAL 3000
-#define SPEED_XY_FAST   5000
+#define SPEED_XY_SLOW   50
+#define SPEED_XY_NORMAL 100
+#define SPEED_XY_FAST   150
 
 // Z speed (mm/min)
-#define SPEED_Z_SLOW   500
-#define SPEED_Z_NORMAL 1000
-#define SPEED_Z_FAST   2000
+#define SPEED_Z_SLOW   15
+#define SPEED_Z_NORMAL 25
+#define SPEED_Z_FAST   35
 
 // Extrude speed (mm/min)
-#define EXTRUDE_SLOW_SPEED     60
-#define EXTRUDE_NORMAL_SPEED  600
-#define EXTRUDE_FAST_SPEED   1200
+#define EXTRUDE_SLOW_SPEED     61
+#define EXTRUDE_NORMAL_SPEED  83
+#define EXTRUDE_FAST_SPEED   133
 
 // Pause Settings
 #define NOZZLE_PAUSE_RETRACT_LENGTH               15  // (mm)
@@ -277,7 +277,7 @@
 
 // Z Fade limits
 #define Z_FADE_MIN_VALUE      0.0f
-#define Z_FADE_MAX_VALUE     20.0f
+#define Z_FADE_MAX_VALUE     40.0f
 #define Z_FADE_DEFAULT_VALUE 10.0f
 
 // Probe Offset limits
@@ -464,7 +464,7 @@
  *
  *   Options: [OFF: 0, WHITE: 1, RED: 2, ORANGE: 3, YELLOW: 4, GREEN: 5, BLUE: 6, INDIGO: 7, VIOLET: 8]
  */
-#define KNOB_LED_COLOR 1  // Default: 1
+#define KNOB_LED_COLOR 8  // Default: 1
 
 // Keep the LED state in Marlin Mode
 #define KEEP_KNOB_LED_COLOR_MARLIN_MODE
