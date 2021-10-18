@@ -86,7 +86,7 @@ void infoSettingsReset(void)
   infoSettings.level_z_pos            = LEVELING_POINT_Z;
   infoSettings.level_z_raise          = LEVELING_POINT_MOVE_Z;
 
-  infoSettings.move_speed             = 2;  // index on infoSettings.axis_speed, infoSettings.ext_speed
+  infoSettings.move_speed             = 1;  // index on infoSettings.axis_speed, infoSettings.ext_speed
 
   infoSettings.inverted_axis          = default_inverted_axis;
 
