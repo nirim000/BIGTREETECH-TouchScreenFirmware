@@ -4,6 +4,7 @@
     // config.ini Parameter Settings - Screen Settings and Feature Settings
     #define STRING_EMULATED_M600          "Emuliere M600"
     #define STRING_EMULATED_M109_M190     "Emulated M109 / M190"
+    #define STRING_FILE_COMMENT_PARSING   "File comment parsing"
     #define STRING_ROTATED_UI             "UI drehen"
     #define STRING_LANGUAGE               "Deutsch"
     #define STRING_ACK_NOTIFICATION       "ACK - Stil"
@@ -143,6 +144,7 @@
     #define STRING_BUSY                   "Bitte warten ..."
     #define STRING_LOADING                "Lade ..."
     #define STRING_UNCONNECTED            "Keine Verbindung zum Drucker!"
+    #define STRING_LISTENING              "TFT in Listening Mode!"
 
     // Process Info
     #define STRING_INFO                   "Info" //Info Sign

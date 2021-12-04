@@ -4,6 +4,7 @@
     // config.ini Parameter Settings - Screen Settings and Feature Settings
     #define STRING_EMULATED_M600          "模拟M600"
     #define STRING_EMULATED_M109_M190     "Emulated M109 / M190"
+    #define STRING_FILE_COMMENT_PARSING   "File comment parsing"
     #define STRING_ROTATED_UI             "旋转界面"
     #define STRING_LANGUAGE               "简体中文"
     #define STRING_ACK_NOTIFICATION       "ACK 弹窗类型"
@@ -143,6 +144,7 @@
     #define STRING_BUSY                   "系统繁忙,请稍候..."
     #define STRING_LOADING                "加载中..."
     #define STRING_UNCONNECTED            "未连接到打印机!"
+    #define STRING_LISTENING              "TFT in Listening Mode!"
 
     // Process Info
     #define STRING_INFO                   "提示"
