@@ -484,7 +484,7 @@ static inline void menuKeyboardView(void)
 
   while (curView == 1)
   {
-    if (infoMenu.menu[infoMenu.cur] != menuTerminal)
+    if (MENU_IS_NOT(menuTerminal))
       break;
 
     key_num = menuKeyGetValue();
@@ -494,7 +494,7 @@ static inline void menuKeyboardView(void)
         break;
 
       case GKEY_BACK:
-        infoMenu.cur--;
+        CLOSE_MENU();
         break;
 
       case GKEY_SEND:
@@ -572,10 +572,10 @@ static inline void saveGcodeTerminalCache(const char * str, uint16_t strLen)
 
 void terminalCache(const char * stream, uint16_t streamLen, SERIAL_PORT_INDEX portIndex, TERMINAL_SRC src)
 {
-  if (infoMenu.menu[infoMenu.cur] != menuTerminal)
+  if (MENU_IS_NOT(menuTerminal))
     return;
 
-  char * srcID[TERMINAL_COUNT] = {"\5", "\6"};
+  char * srcID[SRC_TERMINAL_COUNT] = {"\5", "\6"};
 
   // copy string source identifier
   if (terminalData->lastSrc != src)
@@ -584,7 +584,7 @@ void terminalCache(const char * stream, uint16_t streamLen, SERIAL_PORT_INDEX po
     terminalData->lastSrc = src;
   }
 
-  if (src == TERMINAL_GCODE)
+  if (src == SRC_TERMINAL_GCODE)
   {
     if (serialPort[portIndex].id[0] != 0)  // if not empty string
       saveGcodeTerminalCache(serialPort[portIndex].id, 1);  // serial port ID (e.g. "2" for SERIAL_PORT_2)
@@ -598,7 +598,7 @@ void terminalCache(const char * stream, uint16_t streamLen, SERIAL_PORT_INDEX po
 // reverse lookup for source identifier
 TERMINAL_SRC getLastSrc(char * ptr)
 {
-  TERMINAL_SRC lastSrc = TERMINAL_GCODE;
+  TERMINAL_SRC lastSrc = SRC_TERMINAL_GCODE;
   char * endPtr = (ptr + 1);
 
   // Set end of search pointer
@@ -717,7 +717,7 @@ void menuTerminalWindow(void)
 
   KEY_VALUES key_num = KEY_IDLE;
   CHAR_INFO info;
-  TERMINAL_SRC pageHeadSrc = TERMINAL_GCODE;
+  TERMINAL_SRC pageHeadSrc = SRC_TERMINAL_GCODE;
   uint16_t lastTerminalIndex = 0;
   uint8_t pageBufIndex = 0;
   int16_t cursorX = CURSOR_START_X;
@@ -727,7 +727,7 @@ void menuTerminalWindow(void)
 
   while (curView == 2)
   {
-    if (infoMenu.menu[infoMenu.cur] != menuTerminal)
+    if (MENU_IS_NOT(menuTerminal))
       break;
 
     key_num = menuKeyGetValue();
@@ -850,7 +850,7 @@ void menuTerminalWindow(void)
   terminalData->pageHead = 0;
   terminalData->pageIndex = 0;
   terminalData->oldPageIndex = 0;
-  terminalData->lastSrc = (TERMINAL_ACK + 1);
+  terminalData->lastSrc = (SRC_TERMINAL_ACK + 1);
 
   // restore default
   GUI_RestoreColorDefault();
@@ -858,7 +858,7 @@ void menuTerminalWindow(void)
 
 void menuTerminal(void)
 {
-  TERMINAL_DATA termPage = {{terminalBuf}, 0, 0, 0, 0, 0, 0, TERMINAL_MAX_CHAR, MAX_PAGE_COUNT, 0, (TERMINAL_ACK + 1)};
+  TERMINAL_DATA termPage = {{terminalBuf}, 0, 0, 0, 0, 0, 0, TERMINAL_MAX_CHAR, MAX_PAGE_COUNT, 0, (SRC_TERMINAL_ACK + 1)};
 
   if (isPrinting() || infoHost.printing)  // display only 1 page if printing
   {
@@ -872,12 +872,12 @@ void menuTerminal(void)
   terminalData = &termPage;
   curView = 1;
 
-  for(uint8_t i = 0; i < termPage.maxPageCount; i++)
+  for (uint8_t i = 0; i < termPage.maxPageCount; i++)
   {
     termPage.ptr[i] = terminalBuf;
   }
 
-  while (infoMenu.menu[infoMenu.cur] == menuTerminal)
+  while (MENU_IS(menuTerminal))
   {
     if (curView == 1)
       menuKeyboardView();

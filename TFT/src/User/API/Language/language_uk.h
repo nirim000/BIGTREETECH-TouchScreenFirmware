@@ -4,6 +4,7 @@
     // config.ini Parameter Settings - Screen Settings and Feature Settings
     #define STRING_EMULATED_M600          "Emulated M600"
     #define STRING_EMULATED_M109_M190     "Emulated M109 / M190"
+    #define STRING_FILE_COMMENT_PARSING   "File comment parsing"
     #define STRING_ROTATED_UI             "Повернути інтерфейс"
     #define STRING_LANGUAGE               "Українська"
     #define STRING_ACK_NOTIFICATION       "ACK стиль повідомлення"
@@ -143,6 +144,7 @@
     #define STRING_BUSY                   "Опрацювання, зачекайте ..."
     #define STRING_LOADING                "Завантаження ..."
     #define STRING_UNCONNECTED            "Принтер не підключено!"
+    #define STRING_LISTENING              "TFT in Listening Mode!"
 
     // Process Info
     #define STRING_INFO                   "\u0884 Інформація" // Info Sign
@@ -359,6 +361,6 @@
     #define STRING_MESH_VALID             "Mesh Validation"
     #define STRING_CONNECT_PROBE          "Connect probe before starting the process. Make sure to disconnect it afterwards."
     #define STRING_DISCONNECT_PROBE       "Make sure you have disconnected probe before using this feature."
-    #define STRING_CALIBRATION            "Calibration"
+    #define STRING_CALIBRATION            "Calibrate"
 
 #endif
